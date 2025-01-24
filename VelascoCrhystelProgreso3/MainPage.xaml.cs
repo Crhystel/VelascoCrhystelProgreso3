@@ -10,7 +10,10 @@ namespace VelascoCrhystelProgreso3
         public MainPage()
         {
             InitializeComponent();
-            _viewModel = new CVAeroPuertoViewModel(new CVAeropuertoRepository(new HttpClient()));
+            var httpClient = new HttpClient();
+            var aeropuertoRepository = new CVAeropuertoRepository(httpClient);
+            var conexionDBRepository = new CVConexionDBRepository(httpClient);
+            _viewModel = new CVAeroPuertoViewModel(aeropuertoRepository, conexionDBRepository);
             BindingContext = _viewModel;
         }
 

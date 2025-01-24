@@ -23,7 +23,7 @@ namespace VelascoCrhystelProgreso3.Repositories
         public void Init()
         {
             _conexion = new SQLiteConnection(_dbPath);
-            _conexion.CreateTable<CVAeropuerto>();
+            _conexion.CreateTable<CVAeropuertoBD>();
         }
         public void Add(CVAeropuerto aeropuerto)
         {

@@ -47,9 +47,10 @@ namespace VelascoCrhystelProgreso3.ViewModels
                 }
             }
         }
-        public CVAeroPuertoViewModel(CVAeropuertoRepository cVAeropuertoRepository)
+        public CVAeroPuertoViewModel(CVAeropuertoRepository cVAeropuertoRepository,CVConexionDBRepository conexionDBRepository)
         {
             _aeropuerto = cVAeropuertoRepository;
+            _conexionDBRepository = conexionDBRepository;
             BuscarAeropuertoCommand = new Command(async () => await BuscarAeropuertoAsync(),Buscar);
             LimpiarAeropuertoCommand = new Command(LimpiarAeropuerto);
         }
