@@ -71,7 +71,6 @@ namespace VelascoCrhystelProgreso3.ViewModels
             var aeropuerto = await _aeropuerto.GetAeropuerto(BuscarAeropuerto);
             if (aeropuerto != null)
             {
-                aeropuerto.userName = "VelascoCrhystel";
                 _conexionDBRepository.Add(aeropuerto);
                 await _conexionDBRepository.SaveChangesAsync();
                 Mensaje = "Aeropuerto encontrado";
