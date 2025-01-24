@@ -2,11 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VelascoCrhystelProgreso3.Views.MostrarBDView"
-             Title="CV Mostrar lo que hay en la base de datos">
-    <!--xmlns:cv="clr-namespace:VelascoCrhystelProgreso3.ViewModels">
+             Title="CV Mostrar lo que hay en la base de datos"
+             xmlns:cv="clr-namespace:VelascoCrhystelProgreso3.ViewModels">
     <ContentPage.BindingContext>
         <cv:CVAeroPuertoViewModel />
-    </ContentPage.BindingContext>-->
+    </ContentPage.BindingContext>
     <VerticalStackLayout Padding="20">
         <Button Text="Cargar Información"
                 Command="{Binding CargarInfoBDCommand}"
@@ -14,7 +14,37 @@
         <ListView ItemsSource="{Binding Aeropuertos}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding MiNombre}" Detail="{Binding Pais}" />
+                    <ViewCell>
+                        <StackLayout Spacing="3">
+                            <StackLayout Orientation="Horizontal" >
+                                <Label Text="{Binding MiNombre}" FontAttributes="Bold" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" Spacing="6">
+                                <Label Text="Aeropuerto: " FontAttributes="Bold" />
+                                <Label Text="{Binding NombreAeropuerto}" />
+                                
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" Spacing="6">
+                                <Label Text="País: " FontAttributes="Bold" />
+                                <Label Text="{Binding Pais}" />
+
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" Spacing="6">
+                                <Label Text="Longitud: " FontAttributes="Bold" />
+                                <Label Text="{Binding Longitud}" />
+                                
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" Spacing="6">
+                                <Label Text="Latitud: " FontAttributes="Bold" />
+                                <Label Text="{Binding Latitud}" />
+                                
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" Spacing="6">
+                                <Label Text="Email: " FontAttributes="Bold" />
+                                <Label Text="{Binding Email}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

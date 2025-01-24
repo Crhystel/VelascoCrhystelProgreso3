@@ -29,6 +29,7 @@ namespace VelascoCrhystelProgreso3.Repositories
         {
             var aeropuertoBD = new CVAeropuertoBD
             {
+                NombreAeropuerto = aeropuerto.name,
                 Pais = aeropuerto.country,
                 Latitud = aeropuerto.location.latitude.ToString(),
                 Longitud = aeropuerto.location.longitude.ToString(),

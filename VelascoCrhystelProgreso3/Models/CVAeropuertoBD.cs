@@ -12,6 +12,7 @@ namespace VelascoCrhystelProgreso3.Models
 
         [PrimaryKey,AutoIncrement]
         public int Id { get; set; }
+        public string NombreAeropuerto { get; set; }
         public string Pais { get; set; }
         public string Latitud { get; set; }
         public string Longitud { get; set; }
