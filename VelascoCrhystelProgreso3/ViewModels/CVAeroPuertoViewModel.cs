@@ -30,6 +30,7 @@ namespace VelascoCrhystelProgreso3.ViewModels
                 {
                     _buscarAeropuerto = value;
                     OnPropertyChanged();
+                    ((Command)BuscarAeropuertoCommand).ChangeCanExecute();
                 }
             }
         }
@@ -61,13 +62,13 @@ namespace VelascoCrhystelProgreso3.ViewModels
         {
             if (!Buscar())
             {
-                Mensaje = "Aeropuerto no existe bro";
+                Mensaje = "Aeropuerto no existe bro ingresa algo";
                 return;
             }
             var aeropuerto = await _aeropuerto.GetAeropuerto(BuscarAeropuerto);
             if (aeropuerto != null)
             {
-                aeropuerto.Username = "VelascoCrhystel";
+                aeropuerto.UserName = "VelascoCrhystel";
                 _conexionDBRepository.Add(aeropuerto);
                 await _conexionDBRepository.SaveChangesAsync();
                 Mensaje = "Aeropuerto encontrado";
@@ -77,7 +78,12 @@ namespace VelascoCrhystelProgreso3.ViewModels
                 Mensaje = "Aeropuerto no existe";
             }
         }
-
+        private void LimpiarAeropuerto()
+        {
+            BuscarAeropuerto = string.Empty;
+            Mensaje = string.Empty;
+            ((Command)BuscarAeropuertoCommand).ChangeCanExecute();
+        }
 
 
         public event PropertyChangedEventHandler PropertyChanged;

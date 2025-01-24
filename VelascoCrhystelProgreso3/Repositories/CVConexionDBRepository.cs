@@ -12,6 +12,7 @@ namespace VelascoCrhystelProgreso3.Repositories
     {
         private readonly string _dbPath=Path.Combine(FileSystem.AppDataDirectory, "CVAeropuertosP3.db3");
         private SQLiteConnection _conexion;
+        private readonly List<CVAeropuerto> _aeropuertos = new();
         public CVConexionDBRepository()
         {
             Init();
@@ -20,6 +21,14 @@ namespace VelascoCrhystelProgreso3.Repositories
         {
             _conexion = new SQLiteConnection(_dbPath);
             _conexion.CreateTable<CVAeropuerto>();
+        }
+        public void Add(CVAeropuerto aeropuerto)
+        {
+            _aeropuertos.Add(aeropuerto);
+        }
+        public async Task SaveChangesAsync()
+        {
+            await Task.CompletedTask;
         }
     }
 }

@@ -16,13 +16,14 @@ namespace VelascoCrhystelProgreso3.Repositories
         {
             _httpClient = new HttpClient();
         }
-        public Task<CVAeropuerto> GetAeropuerto(string name)
+        public async Task<CVAeropuerto> GetAeropuerto(string name)
         {
             try
             {
                 var url = $"https://localhost:44300/api/Aeropuerto/{name}";
-                var response = _httpClient.GetAsync(url).Result;
-                return JsonSerializer.DeserializeAsync<CVAeropuerto>(response, new JsonSerializerOptions({
+                var response = await _httpClient.GetStringAsync(url);
+                return JsonSerializer.Deserialize<CVAeropuerto>(response, new JsonSerializerOptions
+                {
                     PropertyNameCaseInsensitive = true
                 });
             }
