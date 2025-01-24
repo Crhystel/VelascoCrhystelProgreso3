@@ -2,18 +2,21 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VelascoCrhystelProgreso3.MainPage"
-             xmlns:vm="clr-namespace:VelascoCrhystelProgreso3.ViewModels">
+             xmlns:vm="clr-namespace:VelascoCrhystelProgreso3.ViewModels"
+             BackgroundColor="Pink"
+             Title="Pruebita Final">
     <ContentPage.BindingContext>
         <vm:CVAeroPuertoViewModel />
     </ContentPage.BindingContext>
 
     <ScrollView>
-        <StackLayout Padding="20">
+        <StackLayout Padding="20" Spacing="10">
             <Entry Text="{Binding BuscarAeropuerto}" Placeholder="Ingresa un país" />
-            <Button Text="Buscar" Command="{Binding BuscarAeropuertoCommand}" />
-            <Button Text="Limpiar" Command="{Binding LimpiarAeropuertoCommand}" />
-            <Label Text="{Binding Mensaje}" />
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="15">
+                <Button Text="Buscar" Command="{Binding BuscarAeropuertoCommand}" WidthRequest="100" />
+                <Button Text="Limpiar" Command="{Binding LimpiarAeropuertoCommand}" WidthRequest="100" />
+            </StackLayout>
+            <Label Text="{Binding Mensaje}" HorizontalOptions="Center" />
         </StackLayout>
     </ScrollView>
-
 </ContentPage>
