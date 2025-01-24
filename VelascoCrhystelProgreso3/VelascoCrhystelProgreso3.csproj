@@ -67,7 +67,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Interfaces\" />
+	  <Folder Include="ViewModels\" />
 	</ItemGroup>
 
 </Project>
