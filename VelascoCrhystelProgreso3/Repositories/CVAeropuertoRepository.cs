@@ -22,6 +22,7 @@ namespace VelascoCrhystelProgreso3.Repositories
             {
                 var url = $"https://freetestapi.com/api/v1/airports?search={name}";
                 var response = await _httpClient.GetStringAsync(url);
+                Console.WriteLine(response);
                 return JsonSerializer.Deserialize<CVAeropuerto>(response, new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
