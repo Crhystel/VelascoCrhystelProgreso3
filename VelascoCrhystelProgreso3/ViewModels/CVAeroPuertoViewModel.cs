@@ -14,7 +14,7 @@ namespace VelascoCrhystelProgreso3.ViewModels
 {
     public partial class CVAeroPuertoViewModel:INotifyPropertyChanged
     {
-        private readonly IAeropuerto _aeropuerto;
+        private readonly CVAeropuertoRepository _aeropuerto;
         private readonly CVConexionDBRepository _conexionDBRepository;
         private string _buscarAeropuerto;
         private string _mensaje;
@@ -34,6 +34,7 @@ namespace VelascoCrhystelProgreso3.ViewModels
                 }
             }
         }
+        
         public string Mensaje
         {
             get => _mensaje;
@@ -46,14 +47,16 @@ namespace VelascoCrhystelProgreso3.ViewModels
                 }
             }
         }
-        public CVAeroPuertoViewModel(IAeropuerto aeropuerto,CVConexionDBRepository conexion)
+        public CVAeroPuertoViewModel(CVAeropuertoRepository cVAeropuertoRepository)
         {
-            _aeropuerto = aeropuerto;
-            _conexionDBRepository = conexion;
+            _aeropuerto = cVAeropuertoRepository;
             BuscarAeropuertoCommand = new Command(async () => await BuscarAeropuertoAsync(),Buscar);
             LimpiarAeropuertoCommand = new Command(LimpiarAeropuerto);
         }
-
+        public CVAeroPuertoViewModel()
+        {
+            
+        }
         private bool Buscar()
         {
             return !string.IsNullOrEmpty(BuscarAeropuerto);

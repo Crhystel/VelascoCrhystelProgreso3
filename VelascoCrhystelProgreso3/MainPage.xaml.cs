@@ -11,6 +11,7 @@ namespace VelascoCrhystelProgreso3
         {
             InitializeComponent();
             _viewModel = new CVAeroPuertoViewModel(new CVAeropuertoRepository(new HttpClient()));
+            BindingContext = _viewModel;
         }
 
     }
