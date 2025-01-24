@@ -10,7 +10,7 @@
 
     <TabBar>
         <ShellContent
-            Title="Home"
+            Title="Consumir API"
             ContentTemplate="{DataTemplate local:MainPage}"
             Route="MainPage">
         </ShellContent>

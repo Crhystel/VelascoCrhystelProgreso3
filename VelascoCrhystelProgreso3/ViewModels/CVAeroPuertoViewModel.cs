@@ -102,7 +102,7 @@ namespace VelascoCrhystelProgreso3.ViewModels
                 }
                 else
                 {
-                    Mensaje = "No se encontraron aeropuertos con ese nombre.";
+                    Mensaje = "No papi eso no esta en la info de la API pon otra cosa";
                 }
             }
             catch (Exception ex)
