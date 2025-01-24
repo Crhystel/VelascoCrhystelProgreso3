@@ -4,12 +4,25 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:VelascoCrhystelProgreso3"
+    xmlns:view="clr-namespace:VelascoCrhystelProgreso3.Views"
     Shell.FlyoutBehavior="Disabled"
     Title="VelascoCrhystelProgreso3">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        <ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage">
+        </ShellContent>
+
+        <ShellContent
+            Title="Ver datos BD"
+            ContentTemplate="{DataTemplate view:MostrarBDView}"
+            Route="MostrarBDView">
+
+        </ShellContent>
+            
+
+    </TabBar>
 
 </Shell>
