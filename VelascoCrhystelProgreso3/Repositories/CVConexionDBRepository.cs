@@ -27,7 +27,19 @@ namespace VelascoCrhystelProgreso3.Repositories
         }
         public void Add(CVAeropuerto aeropuerto)
         {
-            _aeropuertos.Add(aeropuerto);
+            var aeropuertoBD = new CVAeropuertoBD
+            {
+                Pais = aeropuerto.country,
+                Latitud = aeropuerto.location.latitude.ToString(),
+                Longitud = aeropuerto.location.longitude.ToString(),
+                Email = aeropuerto.contact_info.email,
+                MiNombre = "CrhystelVelasco"
+            };
+            _conexion.Insert(aeropuertoBD);
+        }
+        public List<CVAeropuerto> GetAeropuertoBD()
+        {
+            return _conexion.Table<CVAeropuertoBD>().ToList();
         }
         public async Task SaveChangesAsync()
         {
