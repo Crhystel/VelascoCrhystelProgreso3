@@ -1,25 +1,18 @@
-﻿namespace VelascoCrhystelProgreso3
+﻿using VelascoCrhystelProgreso3.Repositories;
+using VelascoCrhystelProgreso3.ViewModels;
+
+namespace VelascoCrhystelProgreso3
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        private readonly CVAeroPuertoViewModel _viewModel;
 
         public MainPage()
         {
             InitializeComponent();
+            _viewModel = new CVAeroPuertoViewModel(new CVAeropuertoRepository(new HttpClient()));
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
-        {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
-        }
     }
 
 }
