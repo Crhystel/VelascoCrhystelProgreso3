@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
+using VelascoCrhystelProgreso3.Interfaces;
 using VelascoCrhystelProgreso3.Repositories;
 using VelascoCrhystelProgreso3.ViewModels;
+using VelascoCrhystelProgreso3.Views;
 
 namespace VelascoCrhystelProgreso3
 {
@@ -21,6 +23,7 @@ namespace VelascoCrhystelProgreso3
             builder.Services.AddSingleton<CVAeropuertoRepository>();
             builder.Services.AddSingleton<HttpClient>();
             builder.Services.AddSingleton<CVAeroPuertoViewModel>();
+            builder.Services.AddSingleton<MostrarBDView>();
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

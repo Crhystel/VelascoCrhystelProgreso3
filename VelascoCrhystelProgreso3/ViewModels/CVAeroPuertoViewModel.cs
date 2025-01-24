@@ -67,6 +67,7 @@ namespace VelascoCrhystelProgreso3.ViewModels
         {
             _aeropuerto = cVAeropuertoRepository;
             _conexionDBRepository = conexionDBRepository;
+            Aeropuertos = new ObservableCollection<CVAeropuertoBD>();
             BuscarAeropuertoCommand = new Command(async () => await BuscarAeropuertoAsync(),Buscar);
             LimpiarAeropuertoCommand = new Command(LimpiarAeropuerto);
             CargarInfoBDCommand = new Command(CargarInfoBD);
