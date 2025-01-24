@@ -9,6 +9,6 @@ namespace VelascoCrhystelProgreso3.Interfaces
 {
     public interface IAeropuerto
     {
-        Task<CVAeropuerto> GetAeropuerto(string name);
+        Task<List<CVAeropuerto>> GetAeropuerto(string name);
     }
 }
