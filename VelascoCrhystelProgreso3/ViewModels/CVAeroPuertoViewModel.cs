@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using VelascoCrhystelProgreso3.Interfaces;
+using VelascoCrhystelProgreso3.Models;
 using VelascoCrhystelProgreso3.Repositories;
 
 namespace VelascoCrhystelProgreso3.ViewModels
@@ -18,8 +20,10 @@ namespace VelascoCrhystelProgreso3.ViewModels
         private readonly CVConexionDBRepository _conexionDBRepository;
         private string _buscarAeropuerto;
         private string _mensaje;
+        private ObservableCollection<CVAeropuertoBD> _aeropuertos;
         public ICommand BuscarAeropuertoCommand { get;}
         public ICommand LimpiarAeropuertoCommand { get; }
+        public ICommand CargarInfoBDCommand { get; }
 
         public string BuscarAeropuerto
         {
@@ -47,12 +51,25 @@ namespace VelascoCrhystelProgreso3.ViewModels
                 }
             }
         }
+        public ObservableCollection<CVAeropuertoBD> Aeropuertos
+        {
+            get => _aeropuertos;
+            set
+            {
+                if (_aeropuertos != value)
+                {
+                    _aeropuertos = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
         public CVAeroPuertoViewModel(CVAeropuertoRepository cVAeropuertoRepository,CVConexionDBRepository conexionDBRepository)
         {
             _aeropuerto = cVAeropuertoRepository;
             _conexionDBRepository = conexionDBRepository;
             BuscarAeropuertoCommand = new Command(async () => await BuscarAeropuertoAsync(),Buscar);
             LimpiarAeropuertoCommand = new Command(LimpiarAeropuerto);
+            CargarInfoBDCommand = new Command(CargarInfoBD);
         }
         public CVAeroPuertoViewModel()
         {
@@ -90,6 +107,16 @@ namespace VelascoCrhystelProgreso3.ViewModels
             catch (Exception ex)
             {
                 Mensaje = $"Error al buscar aeropuerto: {ex.Message}";
+            }
+        }
+
+        private void CargarInfoBD()
+        {
+            var aeropuertoLista = _conexionDBRepository.GetAeropuertoBD();
+            Aeropuertos.Clear();
+            foreach (var aeropuerto in aeropuertoLista)
+            {
+                Aeropuertos.Add(aeropuerto);
             }
         }
         private void LimpiarAeropuerto()
