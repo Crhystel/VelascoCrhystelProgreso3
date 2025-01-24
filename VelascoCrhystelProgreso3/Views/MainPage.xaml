@@ -4,7 +4,7 @@
              x:Class="VelascoCrhystelProgreso3.MainPage"
              xmlns:vm="clr-namespace:VelascoCrhystelProgreso3.ViewModels"
              BackgroundColor="Pink"
-             Title="Pruebita Final">
+             Title="CrhytelVelasco Pruebita Final">
     <ContentPage.BindingContext>
         <vm:CVAeroPuertoViewModel />
     </ContentPage.BindingContext>

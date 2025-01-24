@@ -34,7 +34,7 @@ namespace VelascoCrhystelProgreso3.Repositories
                 Latitud = aeropuerto.location.latitude.ToString(),
                 Longitud = aeropuerto.location.longitude.ToString(),
                 Email = aeropuerto.contact_info.email,
-                MiNombre = "CrhystelVelasco"
+                CrhystelVelasco = "CrhystelVelasco"
             };
             _conexion.Insert(aeropuertoBD);
         }

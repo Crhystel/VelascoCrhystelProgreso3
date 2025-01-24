@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VelascoCrhystelProgreso3.Views.MostrarBDView"
-             Title="CV Mostrar lo que hay en la base de datos"
+             Title="CrystelVelasco Mostrar lo que hay en la base de datos"
              xmlns:cv="clr-namespace:VelascoCrhystelProgreso3.ViewModels">
     <ContentPage.BindingContext>
         <cv:CVAeroPuertoViewModel />
@@ -17,7 +17,7 @@
                     <ViewCell>
                         <StackLayout Spacing="3">
                             <StackLayout Orientation="Horizontal" >
-                                <Label Text="{Binding MiNombre}" FontAttributes="Bold" />
+                                <Label Text="{Binding CrhystelVelasco}" FontAttributes="Bold" />
                             </StackLayout>
                             <StackLayout Orientation="Horizontal" Spacing="6">
                                 <Label Text="Aeropuerto: " FontAttributes="Bold" />

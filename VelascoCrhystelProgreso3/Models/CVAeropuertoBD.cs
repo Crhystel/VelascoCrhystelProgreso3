@@ -17,11 +17,11 @@ namespace VelascoCrhystelProgreso3.Models
         public string Latitud { get; set; }
         public string Longitud { get; set; }
         public string Email { get; set; }
-        public string MiNombre { get; set; }
-        public CVAeropuertoBD()
-        {
-            MiNombre = "CrhystelVelasco";
-        }
+        public string CrhystelVelasco { get; set; }
+        //public CVAeropuertoBD()
+        //{
+        //    MiNombre = "CrhystelVelasco";
+        //}
     }
 
 }
