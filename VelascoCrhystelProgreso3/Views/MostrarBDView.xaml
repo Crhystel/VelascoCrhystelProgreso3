@@ -3,14 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VelascoCrhystelProgreso3.Views.MostrarBDView"
              Title="CrystelVelasco Mostrar lo que hay en la base de datos"
-             xmlns:cv="clr-namespace:VelascoCrhystelProgreso3.ViewModels">
+             xmlns:cv="clr-namespace:VelascoCrhystelProgreso3.ViewModels"
+             BackgroundColor="Pink">
     <ContentPage.BindingContext>
         <cv:CVAeroPuertoViewModel />
     </ContentPage.BindingContext>
     <VerticalStackLayout Padding="20">
         <Button Text="Cargar Información"
                 Command="{Binding CargarInfoBDCommand}"
-                VerticalOptions="Start" />
+                WidthRequest="100" 
+                TextColor="White"
+                VerticalOptions="Start" 
+                BackgroundColor="Black"/>
         <ListView ItemsSource="{Binding Aeropuertos}">
             <ListView.ItemTemplate>
                 <DataTemplate>

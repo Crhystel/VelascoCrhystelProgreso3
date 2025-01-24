@@ -13,8 +13,15 @@
         <StackLayout Padding="20" Spacing="10">
             <Entry Text="{Binding BuscarAeropuerto}" Placeholder="Ingresa un país" />
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="15">
-                <Button Text="Buscar" Command="{Binding BuscarAeropuertoCommand}" WidthRequest="100" />
-                <Button Text="Limpiar" Command="{Binding LimpiarAeropuertoCommand}" WidthRequest="100" />
+                <Button Text="Buscar" 
+                        Command="{Binding BuscarAeropuertoCommand}" 
+                        WidthRequest="100" 
+                        BackgroundColor="Black"
+                        TextColor="White"/>
+                <Button Text="Limpiar" 
+                        Command="{Binding LimpiarAeropuertoCommand}" 
+                        WidthRequest="100"
+                        BackgroundColor="PaleVioletRed"/>
             </StackLayout>
             <Label Text="{Binding Mensaje}" HorizontalOptions="Center" />
         </StackLayout>
