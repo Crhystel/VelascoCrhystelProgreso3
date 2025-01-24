@@ -68,16 +68,27 @@ namespace VelascoCrhystelProgreso3.ViewModels
                 Mensaje = "Aeropuerto no existe bro ingresa algo";
                 return;
             }
-            var aeropuerto = await _aeropuerto.GetAeropuerto(BuscarAeropuerto);
-            if (aeropuerto != null)
+            try
             {
-                _conexionDBRepository.Add(aeropuerto);
-                await _conexionDBRepository.SaveChangesAsync();
-                Mensaje = "Aeropuerto encontrado";
+                var aeropuertos = await _aeropuerto.GetAeropuerto(BuscarAeropuerto);
+
+                if (aeropuertos != null && aeropuertos.Any())
+                {
+                    var aeropuerto = aeropuertos.First();
+
+                    _conexionDBRepository.Add(aeropuerto);
+                    await _conexionDBRepository.SaveChangesAsync();
+
+                    Mensaje = $"Aeropuerto encontrado: {aeropuerto.name}, Código: {aeropuerto.code}";
+                }
+                else
+                {
+                    Mensaje = "No se encontraron aeropuertos con ese nombre.";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Mensaje = "Aeropuerto no existe";
+                Mensaje = $"Error al buscar aeropuerto: {ex.Message}";
             }
         }
         private void LimpiarAeropuerto()
