@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using VelascoCrhystelProgreso3.Repositories;
 
 namespace VelascoCrhystelProgreso3
 {
@@ -15,6 +16,7 @@ namespace VelascoCrhystelProgreso3
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<CVConexionDBRepository>();
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
