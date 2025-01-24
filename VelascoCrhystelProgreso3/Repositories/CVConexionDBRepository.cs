@@ -12,10 +12,13 @@ namespace VelascoCrhystelProgreso3.Repositories
     {
         private readonly string _dbPath=Path.Combine(FileSystem.AppDataDirectory, "CVAeropuertosP3.db3");
         private SQLiteConnection _conexion;
+
+        private readonly HttpClient _httpClient;
         private readonly List<CVAeropuerto> _aeropuertos = new();
-        public CVConexionDBRepository()
+        public CVConexionDBRepository(HttpClient httpClient)
         {
             Init();
+            _httpClient = httpClient;
         }
         public void Init()
         {

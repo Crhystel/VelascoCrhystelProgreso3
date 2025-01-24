@@ -10,12 +10,12 @@ namespace VelascoCrhystelProgreso3.Models
     public class CVAeropuerto
     {
         [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Country { get; set; }
-        public string Latitude { get; set; }
-        public string Longitude { get; set; }
-        public string Email { get; set; }
-        public string UserName { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string country { get; set; }
+        public string latitude { get; set; }
+        public string longitude { get; set; }
+        public string email { get; set; }
+        public string userName { get; set; }
     }
 }

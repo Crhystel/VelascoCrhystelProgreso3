@@ -12,7 +12,7 @@ namespace VelascoCrhystelProgreso3.Repositories
     public class CVAeropuertoRepository : IAeropuerto
     {
         private readonly HttpClient _httpClient;
-        public CVAeropuertoRepository()
+        public CVAeropuertoRepository(HttpClient httpClient)
         {
             _httpClient = new HttpClient();
         }
@@ -20,7 +20,7 @@ namespace VelascoCrhystelProgreso3.Repositories
         {
             try
             {
-                var url = $"https://localhost:44300/api/Aeropuerto/{name}";
+                var url = $"https://freetestapi.com/api/v1/airports?search={name}";
                 var response = await _httpClient.GetStringAsync(url);
                 return JsonSerializer.Deserialize<CVAeropuerto>(response, new JsonSerializerOptions
                 {
