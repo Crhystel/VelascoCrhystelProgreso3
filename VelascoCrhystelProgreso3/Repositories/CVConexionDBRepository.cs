@@ -37,7 +37,7 @@ namespace VelascoCrhystelProgreso3.Repositories
             };
             _conexion.Insert(aeropuertoBD);
         }
-        public List<CVAeropuerto> GetAeropuertoBD()
+        public List<CVAeropuertoBD> GetAeropuertoBD()
         {
             return _conexion.Table<CVAeropuertoBD>().ToList();
         }
